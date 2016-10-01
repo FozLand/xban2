@@ -215,6 +215,7 @@ minetest.register_chatcommand("xtempban", {
 		end
 		if time > 18000 then
 			return false, "You may not ban for more than 5 hours, or 18000 seconds."
+		end
 		local expires = os.time() + time
 		xban.ban_player(plname, name, expires, reason)
 		return true, ("Banned %s until %s."):format(plname, os.date("%c", expires))
